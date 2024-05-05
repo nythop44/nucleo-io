@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myappcontainer-deployment
+  labels:
+    app: myappcontainer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myappcontainer
+  template:
+    metadata:
+      labels:
+        app: myappcontainer
+    spec:
+      containers:
+      - name: myappcontainer
+        image: nucleoacr.azurecr.io/myappcontainer:latest
+        ports:
+        - containerPort: 80
