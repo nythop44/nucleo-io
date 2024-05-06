@@ -102,3 +102,9 @@ jobs:
           manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+
+      # Create service
+      - name: Creates the K8S service 
+        run: |
+          kubectl apply -f service.yml
+
