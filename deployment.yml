@@ -17,5 +17,3 @@ spec:
       containers:
       - name: myappcontainer
         image: nucleoacr.azurecr.io/myappcontainer:latest
-        ports:
-        - containerPort: 80
