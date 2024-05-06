@@ -8,3 +8,5 @@ COPY main.go .
 RUN go build -o bin .
 
 ENTRYPOINT [ "/app/bin" ]
+~                                                                                                                         
+~                              
