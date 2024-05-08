@@ -103,8 +103,3 @@ jobs:
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
 
-      # Expose the deployment to a K8s load balancer service
-      - name: Create load balancer
-        run: |
-          kubectl expose -f ${{ env.DEPLOYMENT_MANIFEST_PATH }} --port=80 --target-port=8080 --type='LoadBalancer'
-

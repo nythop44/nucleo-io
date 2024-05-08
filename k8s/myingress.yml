@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: nucleo-ingress
+  namespace: default
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: nucleoio.eastus.cloudapp.azure.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: nucleo-loadbalancer-http
+            port:
+              number: 80
+        path: /
+        pathType: Exact
+  tls:
+  - hosts:
+    - nucleoio.eastus.cloudapp.azure.com
+    secretName: nucleo-deployment-tls-staging
+status:
+  loadBalancer:
+    ingress:
+    - ip: 57.151.61.117
