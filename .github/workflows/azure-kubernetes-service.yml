@@ -39,7 +39,7 @@ env:
   CONTAINER_NAME: "myappcontainer"
   RESOURCE_GROUP: "nucleo-core"
   CLUSTER_NAME: "nucleo-core-io"
-  DEPLOYMENT_MANIFEST_PATH: "deployment.yml"
+  DEPLOYMENT_MANIFEST_PATH: "k8s/deployment.yml"
 
 jobs:
   buildImage:
